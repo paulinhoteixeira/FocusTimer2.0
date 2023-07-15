@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas: "timer sounds";
+
+  width: 82.1rem;
+  height: 33.6rem;
+}
+
+.timer {
+  grid-area: timer;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32rem;
+  height: 21.3rem;
+}
+
+.time {
+  display: flex;
+  font-size: 12.6rem;
+  align-self: center;
+}
+
+.controls {
+  display: flex;
+  gap: 4rem;
+  align-self: center;
+}
+
+.sounds {
+  grid-area: sounds;
+  display: grid;
+  grid-template-columns: 13.8rem 13.8rem;
+  width: 30.8rem;
+  height: 33.6rem;
+  gap: 3.2rem;
+  justify-self: end;
+}
