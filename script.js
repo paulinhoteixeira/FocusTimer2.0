@@ -1,4 +1,5 @@
 const buttonPlay = document.querySelector(".play");
+const buttonPause = document.querySelector(".pause");
 const buttonStop = document.querySelector(".stop");
 const buttonMore = document.querySelector(".more5Minutes");
 const buttonMinus = document.querySelector(".minus5Minutes");
@@ -34,6 +35,9 @@ function countdown() {
 }
 
 buttonPlay.addEventListener("click", function () {
+  buttonPlay.classList.add("hide")
+  buttonPause.classList.remove("hide")
+
   countdown();
 });
 

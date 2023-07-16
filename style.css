@@ -49,6 +49,10 @@ main {
   align-self: center;
 }
 
+.hide{
+  display: none;
+}
+
 .sounds {
   grid-area: sounds;
   display: grid;
