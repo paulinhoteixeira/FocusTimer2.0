@@ -6,6 +6,8 @@
 
 :root {
   font-size: 62.5%;
+  --bg-buttonPressedSound: #02799D;
+  --buttonPressedSound: #fff;
 }
 
 body {
@@ -61,4 +63,16 @@ main {
   height: 33.6rem;
   gap: 3.2rem;
   justify-self: end;
+}
+
+.button{
+  cursor: pointer;
+}
+
+.bgPressed {
+  fill: var(--bg-buttonPressedSound);
+}
+
+.buttonPressed{
+  fill: var(--buttonPressedSound)
 }

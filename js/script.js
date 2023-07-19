@@ -8,9 +8,21 @@ const buttonRainSound = document.querySelector(".rainSound");
 const buttonCoffeeShopSound = document.querySelector(".coffeeShopSound");
 const buttonBonfireSound = document.querySelector(".bonfireSound");
 
+const bgButtonForest = document.querySelector(".forestSound .bg");
+const bgButtonRain = document.querySelector(".rainSound .bg");
+const bgButtonCoffeeShop = document.querySelector(".coffeeShopSound .bg");
+const bgButtonBonfire = document.querySelector(".bonfireSound .bg");
+
+const shapeButtonForest = document.querySelector(".forestSound .shape");
+const shapeButtonRain = document.querySelector(".rainSound .shape");
+const shapeButtonCoffeeShop = document.querySelector(".coffeeShopSound .shape");
+const shapeButtonBonfire = document.querySelector(".bonfireSound .shape");
 
 const buttonPressAudio = new Audio(
   "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true"
+);
+const kitchenTimer = new Audio(
+  "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true"
 );
 const forestSound = new Audio("./assets/Floresta.wav");
 const rainSound = new Audio("./assets/Chuva.wav");
@@ -28,7 +40,7 @@ function countdown() {
   time = setTimeout(() => {
     if (newSeconds == 0 && newMinutes == 0) {
       seconds.textContent = String(newSeconds).padStart(2, "0");
-
+      timeEnd()
       return;
     }
 
@@ -81,6 +93,44 @@ function bgSound(sound) {
   }
 }
 
+function timeEnd( ){
+  kitchenTimer.play()
+}
+
+function resetColors() {
+  bgButtonForest.classList.remove("bgPressed");
+  shapeButtonForest.classList.remove("buttonPressed");
+  bgButtonRain.classList.remove("bgPressed");
+  shapeButtonRain.classList.remove("buttonPressed");
+  bgButtonCoffeeShop.classList.remove("bgPressed");
+  shapeButtonCoffeeShop.classList.remove("buttonPressed");
+  bgButtonBonfire.classList.remove("bgPressed");
+  shapeButtonBonfire.classList.remove("buttonPressed");
+}
+
+function changeButtonColor(sound) {
+  resetColors();
+
+  switch (sound) {
+    case "forest":
+      bgButtonForest.classList.add("bgPressed");
+      shapeButtonForest.classList.add("buttonPressed");
+      break;
+    case "rain":
+      bgButtonRain.classList.add("bgPressed");
+      shapeButtonRain.classList.add("buttonPressed");
+      break;
+    case "coffeeShop":
+      bgButtonCoffeeShop.classList.add("bgPressed");
+      shapeButtonCoffeeShop.classList.add("buttonPressed");
+      break;
+    case "bonfire":
+      bgButtonBonfire.classList.add("bgPressed");
+      shapeButtonBonfire.classList.add("buttonPressed");
+      break;
+  }
+}
+
 buttonPlay.addEventListener("click", function () {
   buttonPlay.classList.add("hide");
   buttonPause.classList.remove("hide");
@@ -117,18 +167,24 @@ buttonMinus.addEventListener("click", function () {
 });
 
 buttonForestSound.addEventListener("click", function () {
+  changeButtonColor("forest");
   bgSound("forest");
 });
 
 buttonRainSound.addEventListener("click", function () {
+  changeButtonColor("rain");
+
   bgSound("rain");
 });
 
 buttonCoffeeShopSound.addEventListener("click", function () {
+  changeButtonColor("coffeeShop");
+
   bgSound("coffeeShop");
 });
 
 buttonBonfireSound.addEventListener("click", function () {
+  changeButtonColor("bonfire");
+
   bgSound("bonfire");
 });
-
