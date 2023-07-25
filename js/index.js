@@ -1,3 +1,5 @@
+import Sounds from "./sounds.js"
+
 const buttonPlay = document.querySelector(".play");
 const buttonPause = document.querySelector(".pause");
 const buttonStop = document.querySelector(".stop");
@@ -18,16 +20,8 @@ const shapeButtonRain = document.querySelector(".rainSound .shape");
 const shapeButtonCoffeeShop = document.querySelector(".coffeeShopSound .shape");
 const shapeButtonBonfire = document.querySelector(".bonfireSound .shape");
 
-const buttonPressAudio = new Audio(
-  "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true"
-);
-const kitchenTimer = new Audio(
-  "https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true"
-);
-const forestSound = new Audio("./assets/Floresta.wav");
-const rainSound = new Audio("./assets/Chuva.wav");
-const coffeeShopSound = new Audio("./assets/Cafeteria.wav");
-const bonfireSound = new Audio("./assets/Lareira.wav");
+const sounds = Sounds()
+
 
 let minutes = document.querySelector(".minutes");
 let seconds = document.querySelector(".seconds");
@@ -40,7 +34,7 @@ function countdown() {
   time = setTimeout(() => {
     if (newSeconds == 0 && newMinutes == 0) {
       seconds.textContent = String(newSeconds).padStart(2, "0");
-      timeEnd()
+      sounds.timeEnd()
       return;
     }
 
@@ -63,39 +57,6 @@ function resetTimer() {
   seconds.textContent = String(0).padStart(2, "0");
 }
 
-function pressButton() {
-  buttonPressAudio.play();
-}
-
-function bgSound(sound) {
-  forestSound.pause();
-  rainSound.pause();
-  coffeeShopSound.pause();
-  bonfireSound.pause();
-
-  switch (sound) {
-    case "forest":
-      forestSound.play();
-      forestSound.loop = true;
-      break;
-    case "rain":
-      rainSound.play();
-      rainSound.loop = true;
-      break;
-    case "coffeeShop":
-      coffeeShopSound.play();
-      coffeeShopSound.loop = true;
-      break;
-    case "bonfire":
-      bonfireSound.play();
-      bonfireSound.loop = true;
-      break;
-  }
-}
-
-function timeEnd( ){
-  kitchenTimer.play()
-}
 
 function resetColors() {
   bgButtonForest.classList.remove("bgPressed");
@@ -134,57 +95,53 @@ function changeButtonColor(sound) {
 buttonPlay.addEventListener("click", function () {
   buttonPlay.classList.add("hide");
   buttonPause.classList.remove("hide");
-  pressButton();
+  sounds.pressButton();
   countdown();
 });
 
 buttonPause.addEventListener("click", function () {
   buttonPlay.classList.remove("hide");
   buttonPause.classList.add("hide");
-  pressButton();
+  sounds.pressButton();
   clearTimeout(time);
 });
 
 buttonStop.addEventListener("click", function () {
   buttonPlay.classList.remove("hide");
   buttonPause.classList.add("hide");
-  pressButton();
+  sounds.pressButton();
   resetTimer();
 });
 
 buttonMore.addEventListener("click", function () {
   let newMinutes = Number(minutes.textContent) + 5;
   minutes.textContent = String(newMinutes).padStart(2, "0");
-  pressButton();
+  sounds.pressButton();
 });
 
 buttonMinus.addEventListener("click", function () {
   let newMinutes =
     Number(minutes.textContent) == 0 ? 0 : Number(minutes.textContent) - 5;
-  // let newMinutes = String(moreMinutes).padStart(2, '0')
   minutes.textContent = String(newMinutes).padStart(2, "0");
-  pressButton();
+  sounds.pressButton();
 });
 
 buttonForestSound.addEventListener("click", function () {
   changeButtonColor("forest");
-  bgSound("forest");
+  sounds.bgSound("forest");
 });
 
 buttonRainSound.addEventListener("click", function () {
   changeButtonColor("rain");
-
-  bgSound("rain");
+  sounds.bgSound("rain");
 });
 
 buttonCoffeeShopSound.addEventListener("click", function () {
   changeButtonColor("coffeeShop");
-
-  bgSound("coffeeShop");
+  sounds.bgSound("coffeeShop");
 });
 
 buttonBonfireSound.addEventListener("click", function () {
   changeButtonColor("bonfire");
-
-  bgSound("bonfire");
+  sounds.bgSound("bonfire");
 });
