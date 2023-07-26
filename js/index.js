@@ -1,15 +1,17 @@
 import Sounds from "./sounds.js"
 import Styles from "./styles.js"
+import {
+  buttonPlay,
+  buttonPause,
+  buttonStop,
+  buttonMore,
+  buttonMinus,
+  buttonForestSound,
+  buttonRainSound,
+  buttonCoffeeShopSound,
+  buttonBonfireSound
+} from "./elements.js"
 
-const buttonPlay = document.querySelector(".play");
-const buttonPause = document.querySelector(".pause");
-const buttonStop = document.querySelector(".stop");
-const buttonMore = document.querySelector(".more5Minutes");
-const buttonMinus = document.querySelector(".minus5Minutes");
-const buttonForestSound = document.querySelector(".forestSound");
-const buttonRainSound = document.querySelector(".rainSound");
-const buttonCoffeeShopSound = document.querySelector(".coffeeShopSound");
-const buttonBonfireSound = document.querySelector(".bonfireSound");
 
 const sounds = Sounds()
 const styles = Styles()
