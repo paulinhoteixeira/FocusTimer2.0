@@ -20,10 +20,7 @@ export default function () {
   }
 
   function bgSound(sound) {
-    forestSound.pause();
-    rainSound.pause();
-    coffeeShopSound.pause();
-    bonfireSound.pause();
+    bgSoundPause()
 
     switch (sound) {
       case "forest":
@@ -45,6 +42,13 @@ export default function () {
     }
   }
 
+  function bgSoundPause() {
+    forestSound.pause();
+    rainSound.pause();
+    coffeeShopSound.pause();
+    bonfireSound.pause();
+  }
+
   function timeEnd() {
     kitchenTimer.play();
   }
@@ -53,5 +57,6 @@ export default function () {
     timeEnd,
     bgAudio,
     bgSound,
+    bgSoundPause
   };
 }

@@ -1,4 +1,5 @@
 import Sounds from "./sounds.js"
+import Styles from "./styles.js"
 
 const buttonPlay = document.querySelector(".play");
 const buttonPause = document.querySelector(".pause");
@@ -10,18 +11,8 @@ const buttonRainSound = document.querySelector(".rainSound");
 const buttonCoffeeShopSound = document.querySelector(".coffeeShopSound");
 const buttonBonfireSound = document.querySelector(".bonfireSound");
 
-const bgButtonForest = document.querySelector(".forestSound .bg");
-const bgButtonRain = document.querySelector(".rainSound .bg");
-const bgButtonCoffeeShop = document.querySelector(".coffeeShopSound .bg");
-const bgButtonBonfire = document.querySelector(".bonfireSound .bg");
-
-const shapeButtonForest = document.querySelector(".forestSound .shape");
-const shapeButtonRain = document.querySelector(".rainSound .shape");
-const shapeButtonCoffeeShop = document.querySelector(".coffeeShopSound .shape");
-const shapeButtonBonfire = document.querySelector(".bonfireSound .shape");
-
 const sounds = Sounds()
-
+const styles = Styles()
 
 let minutes = document.querySelector(".minutes");
 let seconds = document.querySelector(".seconds");
@@ -57,41 +48,6 @@ function resetTimer() {
   seconds.textContent = String(0).padStart(2, "0");
 }
 
-
-function resetColors() {
-  bgButtonForest.classList.remove("bgPressed");
-  shapeButtonForest.classList.remove("buttonPressed");
-  bgButtonRain.classList.remove("bgPressed");
-  shapeButtonRain.classList.remove("buttonPressed");
-  bgButtonCoffeeShop.classList.remove("bgPressed");
-  shapeButtonCoffeeShop.classList.remove("buttonPressed");
-  bgButtonBonfire.classList.remove("bgPressed");
-  shapeButtonBonfire.classList.remove("buttonPressed");
-}
-
-function changeButtonColor(sound) {
-  resetColors();
-
-  switch (sound) {
-    case "forest":
-      bgButtonForest.classList.add("bgPressed");
-      shapeButtonForest.classList.add("buttonPressed");
-      break;
-    case "rain":
-      bgButtonRain.classList.add("bgPressed");
-      shapeButtonRain.classList.add("buttonPressed");
-      break;
-    case "coffeeShop":
-      bgButtonCoffeeShop.classList.add("bgPressed");
-      shapeButtonCoffeeShop.classList.add("buttonPressed");
-      break;
-    case "bonfire":
-      bgButtonBonfire.classList.add("bgPressed");
-      shapeButtonBonfire.classList.add("buttonPressed");
-      break;
-  }
-}
-
 buttonPlay.addEventListener("click", function () {
   buttonPlay.classList.add("hide");
   buttonPause.classList.remove("hide");
@@ -110,6 +66,8 @@ buttonStop.addEventListener("click", function () {
   buttonPlay.classList.remove("hide");
   buttonPause.classList.add("hide");
   sounds.pressButton();
+  sounds.bgSoundPause();
+  styles.resetColors();
   resetTimer();
 });
 
@@ -127,21 +85,21 @@ buttonMinus.addEventListener("click", function () {
 });
 
 buttonForestSound.addEventListener("click", function () {
-  changeButtonColor("forest");
+  styles.changeButtonColor("forest");
   sounds.bgSound("forest");
 });
 
 buttonRainSound.addEventListener("click", function () {
-  changeButtonColor("rain");
+  styles.changeButtonColor("rain");
   sounds.bgSound("rain");
 });
 
 buttonCoffeeShopSound.addEventListener("click", function () {
-  changeButtonColor("coffeeShop");
+  styles.changeButtonColor("coffeeShop");
   sounds.bgSound("coffeeShop");
 });
 
 buttonBonfireSound.addEventListener("click", function () {
-  changeButtonColor("bonfire");
+  styles.changeButtonColor("bonfire");
   sounds.bgSound("bonfire");
 });
