@@ -6,7 +6,9 @@
 
 :root {
   font-size: 62.5%;
-  --bg-buttonPressedSound: #02799D;
+  --primary-color: hsla(240, 6%, 21%, 1);
+  --bgCard: hsla(240, 9%, 89%, 1);
+  --bg-buttonPressedSound: #02799d;
   --buttonPressedSound: #fff;
 }
 
@@ -22,7 +24,7 @@ body {
   /* position: relative; */
 }
 
-header{
+header {
   top: 0;
   position: absolute;
   display: flex;
@@ -65,7 +67,7 @@ main {
   align-self: center;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -79,7 +81,41 @@ main {
   justify-self: end;
 }
 
-.button{
+.card {
+  background-color: var(--bgCard);
+  border-radius: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+  padding-top: 2.4rem;
+}
+
+.slidecontainer{
+  display: flex;
+  height: 1.6rem;
+  width: 9rem;
+}
+
+.slider {
+  -webkit-appearance: none;
+  display: flex; 
+  width: 9rem;
+  height: .4rem;
+  border-radius: 0.5rem;
+  background: var(--primary-color);
+}
+
+.slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.button {
   cursor: pointer;
 }
 
@@ -87,6 +123,6 @@ main {
   fill: var(--bg-buttonPressedSound);
 }
 
-.buttonPressed{
-  fill: var(--buttonPressedSound)
+.buttonPressed {
+  fill: var(--buttonPressedSound);
 }
