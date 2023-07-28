@@ -6,40 +6,16 @@
 
 :root {
   font-size: 62.5%;
-  --light-text-color: hsla(240, 6%, 21%, 1);
-  --dark-text-color: hsla(0, 0%, 100%, 1);
-  --dark-bg-color: hsl(240, 5%, 7%); 
-  --light-bg-card: hsla(240, 9%, 89%, 1);
-  --dark-bg-card: hsla(240, 6%, 17%, 1);
-  --dark-button:hsla(240, 7%, 78%, 1);
-  --bg-buttonPressedSound: #02799d;
+  --bg-buttonPressedSound: #02799D;
   --buttonPressedSound: #fff;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  width: 100vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--light-text-color);
-}
-
-body.dark-mode{
-  background-color: var(--dark-bg-color);
-  color: var(--dark-text-color);
-}
-
-header {
-  top: 0;
-  position: absolute;
-  display: flex;
-  width: 100vw;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 6.4rem 6.4rem 0 0;
 }
 
 main {
@@ -75,19 +51,7 @@ main {
   align-self: center;
 }
 
-.play.dark-mode svg path,
-.pause.dark-mode svg path,
-.stop.dark-mode svg path,
-.more5Minutes.dark-mode svg path,
-.minus5Minutes.dark-mode svg path,
-.forestSound.dark-mode svg path,
-.rainSound.dark-mode svg path,
-.coffeeShopSound.dark-mode svg path,
-.bonfireSound.dark-mode svg path{
-  fill: var(--dark-button);
-}
-
-.hide {
+.hide{
   display: none;
 }
 
@@ -101,55 +65,7 @@ main {
   justify-self: end;
 }
 
-.card {
-  background-color: var(--light-bg-card);
-  border-radius: 2.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3.2rem;
-  padding-top: 2.4rem;
-}
-
-.card.dark-mode{
-  background-color: var(--dark-bg-card);
-
-}
-
-.slidecontainer {
-  display: flex;
-  height: 1.6rem;
-  width: 9rem;
-}
-
-.slider {
-  -webkit-appearance: none;
-  display: flex;
-  width: 9rem;
-  height: 0.4rem;
-  border-radius: 0.5rem;
-  background: var(--light-text-color);
-}
-
-.slider.dark-mode{
-  background: var(--dark-text-color);
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 1.6rem;
-  width: 1.6rem;
-  border-radius: 50%;
-  background-color: var(--light-text-color);
-  cursor: pointer;
-}
-
-.slider.dark-mode::-webkit-slider-thumb{
-  background-color: var(--dark-text-color);
-
-}
-
-.button {
+.button{
   cursor: pointer;
 }
 
@@ -157,6 +73,6 @@ main {
   fill: var(--bg-buttonPressedSound);
 }
 
-.buttonPressed {
-  fill: var(--buttonPressedSound);
+.buttonPressed{
+  fill: var(--buttonPressedSound)
 }
